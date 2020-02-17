@@ -122,3 +122,9 @@ button:hover {
   color: rgb(255, 217, 0);
 
 }
+
+.About {
+  font-size: 40px;
+  text-align: center;
+  color: chartreuse;
+}
