@@ -20,7 +20,7 @@ export default class PokeList extends Component {
         console.log(this.props.match.params)
         if (this.props.match.params) {
             const data = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex/?pokemon=${this.props.match.params.name}`)
-            console.log(data)
+            // console.log(data)
             this.setState({ pokedex: data.body.results })
         }
     }
@@ -40,6 +40,7 @@ export default class PokeList extends Component {
 
 
     render() {
+        console.log(this.state.pokedex)
         return (
             <div className='SearchBar'>            
                 <SearchBar
@@ -50,7 +51,7 @@ export default class PokeList extends Component {
                 <ul id='poke-list'>
                     {
                         this.state.pokedex.map(pokemon =>
-                        <Link to={`pokemon/${pokemon.name}`}>
+                        <Link to={`pokemon/${pokemon.pokemon}`}>
                             <PokeItem pokemon={pokemon} />
                         </Link>)
                     }                                                
