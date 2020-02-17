@@ -9,6 +9,7 @@ import Header from './Header.js';
 import PokeList from './PokeList.js';
 import About from './About.js';
 import './App.css';
+import PokeDetail from './PokeDetail.js';
 
 
 export default class App extends Component {
@@ -25,6 +26,7 @@ export default class App extends Component {
         <Switch>
           <Route exact path='/about' component={About} />
           <Route exact path ='/:name?' component={PokeList} />
+          <Route exact path ='/pokemon/:_id' component={PokeDetail} />
         </Switch>
 
 
