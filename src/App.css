@@ -126,5 +126,24 @@ button:hover {
 .About {
   font-size: 40px;
   text-align: center;
-  color: chartreuse;
+  color: rgb(0, 162, 255);
+}
+
+a {
+  color: rgb(42, 171, 36);
+}
+
+.links {
+  font-size: larger;
+  display: flex;
+  justify-content: space-around;
+  
+  
+}
+
+.SearchBar {
+  
+  
+  display: flex;
+  justify-content: center;
 }

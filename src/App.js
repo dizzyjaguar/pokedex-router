@@ -20,14 +20,16 @@ export default class App extends Component {
       <Router>
       <div>
         <Header></Header>
+        <div className='links'>
+
         <Link to='/'>HomePage</Link>
         <Link to='/about'>About</Link>
-        {/* <PokeList pokedex={this.state.pokedex} /> */}
         <Switch>
           <Route exact path='/about' component={About} />
           <Route exact path ='/:name?' component={PokeList} />
           <Route exact path ='/pokemon/:_id' component={PokeDetail} />
         </Switch>
+        </div>
 
 
       </div>
