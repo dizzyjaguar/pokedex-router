@@ -1,13 +1,19 @@
 import React, { Component } from 'react'
 
 export default class PokeItem extends Component {
+    componentDidMount() {
+        console.log('pokeitem mounted')
+    }
+
     render() {
+        const { pokemon } = this.props; 
+
         return (
         <li className='poke-item'>
-            <h2 className='poke-name' >{this.props.pokeItem.pokemon}</h2>
-            <img alt='' src={this.props.pokeItem.url_image}></img>
-            <p> HP: {this.props.pokeItem.hp} </p>
-            <p> Element: {this.props.pokeItem.type_1} </p>     
+            <h2 className='poke-name' >{pokemon.pokemon}</h2>
+            <img alt='' src={pokemon.url_image}></img>
+            <p> HP: {pokemon.hp} </p>
+            <p> Element: {pokemon.type_1} </p>     
         </li>  
         )
     }

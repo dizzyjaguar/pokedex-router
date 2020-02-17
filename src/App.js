@@ -8,8 +8,6 @@ import {
 import Header from './Header.js';
 import PokeList from './PokeList.js';
 import About from './About.js';
-
-import request from 'superagent';
 import './App.css';
 
 
@@ -26,7 +24,7 @@ export default class App extends Component {
         {/* <PokeList pokedex={this.state.pokedex} /> */}
         <Switch>
           <Route exact path='/about' component={About} />
-          <Route exact path ='/' component={PokeList} />
+          <Route exact path ='/:name?' component={PokeList} />
         </Switch>
 
 
