@@ -6,6 +6,8 @@ import Paging from './Paging.js'
 import { Link } from 'react-router-dom'
 
 
+const getPokemonList = (page, perPage, search) => request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex/?page=${page}&perPage=${perPage}&pokemon=${search}`)
+
 export default class PokeList extends Component {
     
     componentWillMount() {
@@ -49,7 +51,7 @@ export default class PokeList extends Component {
     handleSearch = async (e) => {
         e.preventDefault();
         
-        const data = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex/?pokemon=${this.state.searchQuery}`)
+        const data = await getPokemonList(this.state.page, this.state.perPage,this.state.searchQuery)
         
         this.setState({
             pokedex: data.body.results })
