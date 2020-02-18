@@ -8,6 +8,7 @@ export default class Paging extends Component {
 
         return (
             <div className="paging-div">
+                {/* handlePageChange is a callback function, calling back to pokelist */}
                 <button onClick={e => this.props.handlePageChange(-1)} 
                 disabled={this.props.page === 1}>Previous</button>
 

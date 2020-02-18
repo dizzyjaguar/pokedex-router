@@ -38,9 +38,12 @@ export default class PokeList extends Component {
         const currentPage = Number(this.state.page);
         const newPage = currentPage + increment;
 
-        this.setState({ page: newPage })
+        await this.setState({ page: newPage })
 
+        const data = await getPokemonList(this.state.page, this.state.perPage,this.state.searchQuery)
         
+        this.setState({
+            pokedex: data.body.results })
 
 
         
