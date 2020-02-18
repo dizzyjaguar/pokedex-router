@@ -37,7 +37,7 @@ export default class PokeList extends Component {
     handlePageChange = async (increment) => {
         const currentPage = Number(this.state.page);
         const newPage = currentPage + increment;
-
+        // setState is asycnhronous by nature so we need to await it so that the state of the data doesn't load before we set the state to the new page
         await this.setState({ page: newPage })
 
         const data = await getPokemonList(this.state.page, this.state.perPage,this.state.searchQuery)
