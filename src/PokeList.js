@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import request from 'superagent'
 import SearchBar from './SearchBar.js'
 import PokeItem from './PokeItem.js'
+import Paging from './Paging.js'
 import { Link } from 'react-router-dom'
 
 
@@ -13,10 +14,16 @@ export default class PokeList extends Component {
     
     state = {
         pokedex: [],
+        page: 1,
+        perPage: 5,
         searchQuery: this.props.match.params.name
     }
     
     async componentDidMount() {
+        if (isNaN(this.state.page)) {
+            this.setState({ page: 1 })
+        }
+
         console.log(this.props.match.params)
         if (this.props.match.params) {
             const data = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex/?pokemon=${this.props.match.params.name}`)
@@ -24,6 +31,20 @@ export default class PokeList extends Component {
             this.setState({ pokedex: data.body.results })
         }
     }
+
+    handlePageChange = async (increment) => {
+        const currentPage = Number(this.state.page);
+        const newPage = currentPage + increment;
+
+        this.setState({ page: newPage })
+
+        
+
+
+        
+    }
+
+
     
     handleSearch = async (e) => {
         e.preventDefault();
@@ -56,6 +77,13 @@ export default class PokeList extends Component {
                         </Link>)
                     }                                                
                 </ul>
+                <div id='bottom'>
+                    <Paging
+                    handlePageChange={this.handlePageChange}
+                    page={this.state.page}
+                    perPage={this.state.perPage}>
+                    </Paging>
+                </div>
             </div>
         )
     }
